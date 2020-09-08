@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
-use App\Album;
+use App\Song;
 
 class SongsTableSeeder extends Seeder
 {
@@ -11,8 +11,16 @@ class SongsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        //
+      for ($i=0; $i < 5 ; $i++) {
+        for ($j=0; $j < 10 ; $j++) {
+          $new_song = new Song();
+          $new_song->title = $faker->name;
+          $new_song->genre = $faker->randomElement(['pop','jazz','rock','blues','country','reggae','classic','rap']);
+          $new_song->album_id = $i + 1;
+          $new_song->save();
+        }
+      }
     }
 }
