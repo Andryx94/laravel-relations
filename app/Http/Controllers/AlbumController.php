@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Album;
+use App\Cover;
 
 class AlbumController extends Controller
 {
@@ -15,7 +16,7 @@ class AlbumController extends Controller
     public function index()
     {
       $albums = Album::all();
-      return view('albums.index',compact('albums'));
+      return view('album.index',compact('albums'));
     }
 
     /**
@@ -47,7 +48,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-      return view('albums.show',compact('album'));
+      return view('album.show',compact('album'));
     }
 
     /**

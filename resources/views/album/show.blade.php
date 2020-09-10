@@ -8,4 +8,4 @@
   @endforeach
 </ul>
 
-<a href="{{ route('albums.index') }}">< Torna Indietro</a>
+<a href="{{ route('album.index') }}">< Torna Indietro</a>

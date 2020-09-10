@@ -4,18 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Song extends Model
+class Cover extends Model
 {
   protected $fillable = [
-    'title',
     'album_id',
+    'url',
   ];
 
   public function album() {
     return $this->belongsTo('App\Album');
-  }
-
-  public function genres() {
-    return $this->belongsToMany('App\Genre');
   }
 }

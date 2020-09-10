@@ -1,12 +1,13 @@
-<h1>Albums</h1>
+<h1>Album</h1>
 
 <ul>
   @foreach ($albums as $album)
-    <li>
+    <li>      
       <p>{{ $album->title }}</p>
+      <img src="{{$album->cover->url}}" alt="">
       <p>Artista: {{ $album->artist }}</p>
       <p>Anno: {{ $album->year }}</p>
-      <a href="{{ route('albums.show',$album) }}">Lista Canzoni ></a>
+      <a href="{{ route('album.show',$album) }}">Lista Canzoni ></a>
     </li>
   @endforeach
 </ul>
