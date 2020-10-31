@@ -26,7 +26,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+      return view('album.create');
     }
 
     /**
@@ -37,7 +37,16 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $data = $request->all();
+
+      $album_new = new Album();
+      $album_new->fill($data);
+      $saved = $album_new->save();
+
+      if($saved){
+        $saved_album = Album::orderBy('id', 'desc')->first();
+        return redirect()->route('album.show',$saved_album);
+      }
     }
 
     /**
